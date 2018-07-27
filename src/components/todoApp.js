@@ -61,6 +61,48 @@ export default class TodoApp extends Component {
         this.setState({todoList: updatedTodoList});
     }
 
+    handleEditTodo = (currentTodo) => {
+        currentTodo.isEditing = !currentTodo.isEditng;
+        this.setState({ todoList: this.state.todoList });
+    }
+
+    handleEditChange = (currentTodo) => {
+        // var inputValue = e.target.value;
+        //var currentDescription = currentTodo.description;
+        // var updatedDescription = currentDescription.concat(inputValue);
+        this.setState({
+            newTodo: {
+                description: currentTodo,
+                isDone: false,
+                isEditing: false
+            }//newTodo
+        });//setState
+    }//handleEditChange
+
+    handleSaveEdit = (e, currentTodo) => {
+        e.preventDefault();
+        
+        if (this.state.newTodo.description === "") {
+            alert("Your to-do is empty. Please type your to-do");
+        } else {
+            var updatedTodoList = this.state.todoList.filter((todo) => {
+                return (
+                    todo !== currentTodo
+                );
+            });
+            updatedTodoList = this.state.todoList.concat(this.state.newTodo);
+            this.setState({
+                todoList: updatedTodoList,
+                newTodo: {
+                    description: '',
+                    isDone: false,
+                    isEditing: false
+
+                }//newTodo
+            });//setState
+        }//else
+    }//handleEditSave
+
     render() {
         return (
             <div>
@@ -72,8 +114,12 @@ export default class TodoApp extends Component {
                            />
                                 
                 <DisplayTodoList todoList={this.state.todoList} 
+                                 newTodo={this.state.newTodo}
                                  handleClick={this.handleTodoClick}
                                  handleDelete={this.handleDeleteTodo}
+                                 handleEdit={this.handleEditTodo}
+                                 handleChange={this.handleEditChange}
+                                 handleSave={this.handleSaveEdit}
                                 />
             </div>
         );//return
