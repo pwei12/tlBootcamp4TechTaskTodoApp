@@ -1,3 +1,64 @@
 .app {
   text-align: center;
+ }
+
+ul li span {
+  display: inline-block;
+  width: 60%;
+}
+
+ul li span.complete {
+	text-decoration: line-through;
+}
+
+.btn-remove {
+  /* margin-left: 5%; */
+  background-color: #ff3385;
+  color: white;
+  /* position: absolute;
+  right: 5%; */
+}
+
+.btn-add {
+  background-color: rgb(139, 240, 113);
+}
+
+.nav-left {
+  text-align: center;
+  color: white;
+  display: block;
+  height: 100%; /* 100% Full-height */
+  width: 10%;
+    /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: black;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 5%; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.nav-left .nav-link {
+    display: block;
+    margin: 0 0 20% 0;
+    padding: 5%;
+    font-size: 90%;
+    text-decoration: none;
+}
+
+
+
+.nav-left .active:visited {
+  color: #800080; /*purple*/
+}
+
+.nav-left .active:hover {
+  color: #00FF7F; /*springgreen*/
+}
+
+.about {
+  width: 80%;
+
 }

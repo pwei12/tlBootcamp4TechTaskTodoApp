@@ -1,53 +1,81 @@
 import React, { Component } from 'react';
+import UserInput from './userInput';
 import DisplayTodoList from './displayTodoList';
 
 export default class TodoApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todoList: [],
-      newTodo: ''
+    constructor() {
+        super();
+        this.state = {
+            todoList: [],
+            newTodo: {
+                description: '',
+                isDone: false,
+                isEditing: false
+            }//newTodo
+        }//state
+    }//constructor
+
+    //handleInputChange: record the change of input in the state when there's a key stroke in input
+    handleInputChange = (e) => {
+        this.setState({
+            newTodo: {
+                description: e.target.value,
+                isDone: false,
+                isEditing: false
+            }//newTodo
+        });//setState
+    }//handleInputChange
+
+    //handleAddTodos: 
+    handleAddTodos = (e) => {
+        e.preventDefault();
+        
+        if (this.state.newTodo.description === "") {
+            alert("Your to-do is empty. Please type your to-do");
+        } else {
+            var updatedTodoList = this.state.todoList.concat(this.state.newTodo);
+            this.setState({
+                todoList: updatedTodoList,
+                newTodo: {
+                    description: '',
+                    isDone: false,
+                    isEditing: false
+                }//newTodo
+            });//setState
+        }//else
+    }//handleAddTodos
+
+    handleTodoClick = (currentTodo) => {
+        currentTodo.isDone = !currentTodo.isDone;
+        this.setState({ todoList: this.state.todoList });
     }
-    
-  }
-  
-  //using arrow function don't need to bind the event to "this". 
-  //"this" scope is global and not limited to the calling function
-  //best practice to use arrow function if using ES6 syntax
-  handleInputChange = (event) => {
-    this.setState({newTodo: event.target.value});
-  }
 
-  handleAddTodos = (event) => {
-    event.preventDefault();
-    var updatedTodoList = this.state.todoList.concat(this.state.newTodo);
-    this.setState({
-      todoList: updatedTodoList,
-      newTodo: ''
-    });
-  }
+    //filter out the item to be deleted and update todoList in the state
+    handleDeleteTodo = (todoToBeDeleted) => {
+        var updatedTodoList = this.state.todoList.filter((todo) => {
+            return (
+                todo !== todoToBeDeleted
+            );
+        });
+        
+        this.setState({todoList: updatedTodoList});
+    }
 
-  handleDeleteTodo = (todoToBeDeleted) => {
-    var updatedTodoList = this.state.todoList.filter((todo) => {
-      return (
-        todo !== todoToBeDeleted
-      );
-    });
-    this.setState({todoList: updatedTodoList});
-  }
-  render() {
-    return (
-      <div>
-        <h1>Todo App</h1>
-        <form> 
-          <input onChange={this.handleInputChange} value={this.state.newTodo}>
-          </input>
-          <button onClick={this.handleAddTodos}>  
-            Add
-          </button>
-          <DisplayTodoList todoList={this.state.todoList} handleDelete={this.handleDeleteTodo} />
-        </form>
-      </div>
-    );
-  }
-}
+    render() {
+        return (
+            <div>
+                <h1>Todo App</h1>
+
+                <UserInput inputChange={this.handleInputChange} 
+                           userInput={this.state.newTodo.description} 
+                           handleAddTodos={this.handleAddTodos} 
+                           />
+                                
+                <DisplayTodoList todoList={this.state.todoList} 
+                                 handleClick={this.handleTodoClick}
+                                 handleDelete={this.handleDeleteTodo}
+                                />
+            </div>
+        );//return
+    }//render
+}//component TodoApp

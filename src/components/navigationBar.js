@@ -1,14 +1,13 @@
 import React from 'react';
-import '../css/navigationBar.css';
 import { NavLink } from 'react-router-dom';
 
 
  const NavigationBar = () => {
   return (
       <nav className="nav-left">
-        <NavLink to="/" activeClassName="active">HOME</NavLink>
-        <NavLink to="/about" activeClassName="active">ABOUT ME</NavLink>
-        <NavLink to="/todoApp" activeClassName="active">TODO APP</NavLink>
+        <NavLink to="/" className="nav-link" activeClassName="active">HOME</NavLink>
+        <NavLink to="/about" className="nav-link" activeClassName="active">ABOUT ME</NavLink>
+        <NavLink to="/todoApp" className="nav-link" activeClassName="active">TODO APP</NavLink>
       </nav>
 
   );
