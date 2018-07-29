@@ -48,8 +48,6 @@ ul li span.complete {
     text-decoration: none;
 }
 
-
-
 .nav-left .active:visited {
   color: #800080; /*purple*/
 }
