@@ -1,12 +1,16 @@
 import React from 'react';
+import '../css/home.css';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to My First ReactJS Web Application</h1>
-      <p>This to-do list web application is a technical task needed as part of the application to TechLadies Bootcamp 4.</p>
+    <div className="home-div">
+      <h1>Welcome</h1>
+      <p>This is my first ever ReactJS web application.
+         It is a to-do list web application.
+         I created it as it is a technical task which needs to be compelted 
+         in order to apply for TechLadies Bootcamp 4.</p>
       <footer>
-        <p> Last update: August 2018 </p>
+        Last update: August 2018
       </footer>
     </div>
   );

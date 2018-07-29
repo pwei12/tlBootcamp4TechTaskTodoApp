@@ -11,19 +11,8 @@ import Error from './components/error.js';
 
 
 export default class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     userInput: '',
-  //     todoList:[]
-  //   }
-  // }
-
   render() {
     return (
-        
-
         <BrowserRouter>
           <div className="app">
             <NavigationBar />
@@ -33,11 +22,6 @@ export default class App extends Component {
               <Route path="/todoapp" exact strict component={TodoApp} />
               <Route component={Error} />
             </Switch>
-            {/* <UserInput
-              inputChange={this.inputChangeHandler}
-              value={this.state.userInput}
-              type="text"
-            /> */}
           </div>
         </BrowserRouter>
     );
