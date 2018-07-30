@@ -1,0 +1,48 @@
+.todoApp-div {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+.todoApp-div h1 {
+  font-family: 'Modern Antiqua', cursive;
+  padding: 5% 0;
+}
+
+.displayList {
+  font-family: 'Kalam', cursive;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.input {
+    padding-bottom: 5%;
+  }
+  
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  
+ul li span {
+  display: inline-block;
+  width: 60%;
+  cursor: pointer;
+}
+  
+ul li span.complete {
+ text-decoration: line-through;
+}
+  
+.btn-remove {
+  background-color: #ff3385;
+  color: white;
+}
+  
+.btn-add {
+  background-color: rgb(139, 240, 113);
+}
+
+  

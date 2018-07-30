@@ -1,28 +1,13 @@
+body {
+  font-size: 100%
+  
+}
+
 .app {
   text-align: center;
+  padding: 0;
  }
-
-ul li span {
-  display: inline-block;
-  width: 60%;
-}
-
-ul li span.complete {
-	text-decoration: line-through;
-}
-
-.btn-remove {
-  /* margin-left: 5%; */
-  background-color: #ff3385;
-  color: white;
-  /* position: absolute;
-  right: 5%; */
-}
-
-.btn-add {
-  background-color: rgb(139, 240, 113);
-}
-
+ 
 .nav-left {
   text-align: center;
   color: white;
@@ -54,9 +39,4 @@ ul li span.complete {
 
 .nav-left .active:hover {
   color: #00FF7F; /*springgreen*/
-}
-
-.about {
-  width: 80%;
-
 }

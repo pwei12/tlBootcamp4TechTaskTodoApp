@@ -4,16 +4,16 @@ import React, { Component } from 'react';
 export default class DisplayTodoList extends Component {
     render() {
         return (
-            <ul>
-            {this.props.todoList.map((item) => {
+            <ul className="displayList">
+            {this.props.todoList.map((item, i) => {
                 return (
                     <li>
-                        <span key={item.id}
-                            className={item.isDone ? 'complete' : ''}
-                            onClick={() => this.props.handleClick(item)}>
-                          {item.description}
+                        <span key={i}
+                              className = {item.isDone ? 'complete' : ''}
+                              onClick={() => this.props.handleClick(item)}>
+                            {item.description}
                         </span>
-                        
+
                         <button onClick={() => this.props.handleDelete(item)}
                                 className="btn-remove"> 
                             Remove

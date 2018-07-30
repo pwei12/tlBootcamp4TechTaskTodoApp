@@ -1,47 +1,46 @@
 import React, { Component } from 'react';
 import UserInput from './userInput';
 import DisplayTodoList from './displayTodoList';
+import '../css/todoApp.css';
 
 export default class TodoApp extends Component {
     constructor() {
         super();
         this.state = {
             todoList: [],
-            newTodo: {
-                description: '',
-                isDone: false,
-                isEditing: false
-            }//newTodo
-        }//state
-    }//constructor
+            newTodoDescription: ""
+        }
+    }
 
     //handleInputChange: record the change of input in the state when there's a key stroke in input
     handleInputChange = (e) => {
+        const { name, value} = e.target;
         this.setState({
-            newTodo: {
-                description: e.target.value,
-                isDone: false,
-                isEditing: false
-            }//newTodo
-        });//setState
+            [name]: value
+        });
     }//handleInputChange
 
-    //handleAddTodos: 
+    //handleAddTodos: add new todo to the array in the state
     handleAddTodos = (e) => {
         e.preventDefault();
         
-        if (this.state.newTodo.description === "") {
+        if (this.state.newTodoDescription === "") {
             alert("Your to-do is empty. Please type your to-do");
         } else {
-            var updatedTodoList = this.state.todoList.concat(this.state.newTodo);
+            const newTodo = {
+                description: this.state.newTodoDescription,
+                isDone: false,
+            };
+
+            const newTodoList = [
+                ...this.state.todoList, //spread out the items in an array into a new array, without ... it will be an array inside a new array
+                newTodo,
+            ];
+     
             this.setState({
-                todoList: updatedTodoList,
-                newTodo: {
-                    description: '',
-                    isDone: false,
-                    isEditing: false
-                }//newTodo
-            });//setState
+                todoList: newTodoList,
+                newTodoDescription: ""
+            });
         }//else
     }//handleAddTodos
 
@@ -63,19 +62,20 @@ export default class TodoApp extends Component {
 
     render() {
         return (
-            <div>
+            <div className="todoApp-div">
                 <h1>Todo App</h1>
 
                 <UserInput inputChange={this.handleInputChange} 
-                           userInput={this.state.newTodo.description} 
+                           userInput={this.state.newTodoDescription} 
                            handleAddTodos={this.handleAddTodos} 
-                           />
+                />
                                 
-                <DisplayTodoList todoList={this.state.todoList} 
+                <DisplayTodoList todoList={this.state.todoList}
                                  handleClick={this.handleTodoClick}
                                  handleDelete={this.handleDeleteTodo}
-                                />
+                />
             </div>
         );//return
     }//render
+
 }//component TodoApp
