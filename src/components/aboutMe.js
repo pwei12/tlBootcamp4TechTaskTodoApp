@@ -1,9 +1,11 @@
 import React from 'react';
 import '../css/aboutMe.css';
+import '../scenery-rolling-hills.jpg';
 
 const AboutMe = () => {
   return (
     <div className="aboutMe-div">
+    <img src="scenery-rolling-hills.jpg" alt="rolling hills scenery"/>
       <h1>ABOUT ME</h1>
      {/* who you are, 
       why you want to be part of the TechLadies Bootcamp, 
