@@ -1,0 +1,23 @@
+.aboutMe-div {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 60%;
+    padding-left: 25%;
+    font-size: 1.2em;
+    font-family: 'Courgette', cursive;
+    color:#343335;
+}
+ 
+h1 {
+    color: #131363;
+}
+
+.aboutMe-div h3 {
+    padding-top: 4%;
+    color: #1e0191;
+}
+
+img {
+    width: 50%;
+}
