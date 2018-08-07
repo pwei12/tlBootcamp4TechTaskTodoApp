@@ -21,9 +21,16 @@ router.post('/', function(req, res, next) { //when client is posting
 
 //update todoList (edited todo)
 router.put('/', function(req, res, next) {
+  console.log(req.body);
+
   const updatedTodo = req.body.updatedTodo;
   const id = updatedTodo.id;
   const toBeUpdated = todoList.find(todo => todo.id === id);
+  // const toBeUpdated = todoList.filter((todo)=> {
+  //   return (
+  //     todo === updatedTodo
+  //   );
+  // })[0]
   const index = todoList.indexOf(toBeUpdated);
   todoList.splice(index, 1, updatedTodo);
 

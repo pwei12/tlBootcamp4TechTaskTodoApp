@@ -8,7 +8,7 @@ export default class UserInput extends Component {
                value={this.props.userInput}
                type="text"
                name="newTodoDescription"
-               placeholder="Enter you todos here"
+               placeholder="Enter your todos here"
                className="user-input"
          />
         <button onClick={this.props.handleAddTodos}

@@ -39,7 +39,7 @@ export default class TodoApp extends Component {
             const newTodo = {
                 description: this.state.newTodoDescription,
                 isDone: false,
-                id: Date.now(),
+                id: Date.now(), //returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
                 isEditMode: false,
             };
 
@@ -62,9 +62,17 @@ export default class TodoApp extends Component {
         }
     }//handleAddTodos
 
-    handleTodoClick = (currentTodo) => {
+    handleTodoClick = async (currentTodo) => {
         currentTodo.isDone = !currentTodo.isDone;
         this.setState({ todoList: this.state.todoList });
+
+        const index = this.state.todoList.indexOf(currentTodo);
+        const updatedTodo = this.state.todoList[index];
+        await fetch("/todos", {
+            method: 'put', 
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ updatedTodo }),
+        });
     }
 
     //filter out the item to be deleted and update todoList in the state
@@ -120,7 +128,7 @@ export default class TodoApp extends Component {
         await fetch("/todos", {
                 method: 'put', 
                 headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify({ updatedtodo: updatedTodo }),
+                body: JSON.stringify({ updatedTodo }),
             });
     }
 
