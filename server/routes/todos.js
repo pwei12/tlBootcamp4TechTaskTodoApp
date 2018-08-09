@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {  //when client is getting
 
 //update todoList (add new todo to todoList)
 router.post('/', function(req, res, next) { //when client is posting
-  //req.body.todo is the request from client, todo must be the same as the one in client; then assign to const todo
+  //req.body.todo is the request from client, todo must be the same as the key in client; then assign to const todo
   const todo = req.body.todo; 
   //push the const todo into todoList
   todoList.push(todo); 
@@ -21,8 +21,6 @@ router.post('/', function(req, res, next) { //when client is posting
 
 //update todoList (edited todo)
 router.put('/', function(req, res, next) {
-  console.log(req.body);
-
   const updatedTodo = req.body.updatedTodo;
   const id = updatedTodo.id;
   const toBeUpdated = todoList.find(todo => todo.id === id);

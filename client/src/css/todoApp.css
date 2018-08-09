@@ -1,7 +1,6 @@
 .todoApp-div {
-    position: absolute;
-    bottom: 0;
-    top: 0;
+    /* bottom: 0; */
+    /* top: 0; */
     width: 50%;
     margin-left: 30%;
     /* background-color: rgb(177, 26, 236); */
@@ -16,7 +15,7 @@
 
 .user-input {
     margin-bottom: 5%;
-    width: 40%;
+    width: 50%;
     padding: 1% 1%;
     border-radius: 3px;
     border: 2px solid white;
@@ -37,7 +36,6 @@
 
   .displayList {
     margin-left: 0%;
-    width: 100%;
     font-family: 'Kalam', cursive;
     font-size: 1.5em;
     font-weight: 700;
@@ -46,7 +44,6 @@
 
   .display-input {
     margin-bottom: 1%;
-    width: 40%;
     padding: 0 1%;
     border-radius: 3px;
     font-family: 'Kalam', cursive;
@@ -55,12 +52,12 @@
 
 ul li span {
   display: inline-block;
-  width: 40%;
+  width: 50%;
   cursor: pointer;
   background-color: white;
   margin: 0;
-  /* border-bottom: 2px solid grey; */
   margin-bottom: 1%;
+  word-wrap: break-word;
 }
   
 ul li span.complete {

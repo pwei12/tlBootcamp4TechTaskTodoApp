@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import keyIndex from 'react-key-index';
+// import PropTypes from 'prop-types';
 
 export default class DisplayTodoList extends Component {
 
@@ -30,14 +30,14 @@ export default class DisplayTodoList extends Component {
                         </span>
 
                         <button onClick = {() => this.props.handleEdit(item)}
-                                id = {item.isEditMode ? "hidden" : ""}
+                                id = {item.isEditMode ? "hidden" : ""}  // will be hidden when it is in edit mode
                                 className="btn-list"
                                 >
                             Edit
                         </button>
 
                         <button onClick = {() => this.props.handleDone(item)}
-                                id = {item.isEditMode ? "" : "hidden"}
+                                id = {item.isEditMode ? "" : "hidden"} // will be hidden when it is not in edit mode
                                 className="btn-list"
                                 >
                             Enter
@@ -56,11 +56,14 @@ export default class DisplayTodoList extends Component {
         );
     }
 
-    //Setup validation for each props
-  /* DisplayTodoList.propTypes = {
-    handleDoubleClick: React.PropTypes.func,
-    
-
-  }
-  */
+// //Setup validation for each props
+//     DisplayTodoList.propTypes = {
+//         todoList: PropTypes.array,
+//         handleClick: PropTypes.func,
+//         handleDelete: PropTypes.func,
+//         handleEdit: PropTypes.func,
+//         handleDone: PropTypes.func,
+//         inputChange: PropTypes.func,
+//         editingInput: PropTypes.string,
+//   }
 }

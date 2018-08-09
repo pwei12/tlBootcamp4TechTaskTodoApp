@@ -10,10 +10,10 @@ const Home = () => {
          in order to apply for TechLadies Bootcamp 4.</p>
 
          <p>This to-do web application allows user to add tasks to a list. <br/>
-            The tasks in the list can be edited after clicking on the "Edit" button. <br/>
-            Moreover, the tasks can be marked as completed by clicking once on the text to get strikethrough over the text. <br/>
-            Clicking one more time will remove the strikethrough.<br/>
-            The tasks can also be deleted by clicking on the "Remove" button.
+            The tasks added in the list can be edited by clicking on the "Edit" button. <br/>
+            Moreover, the tasks can be marked as completed by clicking once on the text to get a strikethrough line. <br/>
+            Clicking one more time on the same to-do text will remove the strikethrough line.<br/>
+            On the other hand, the tasks can be deleted by clicking on the "Remove" button.
             </p>
       <footer>
         Last update: August 2018

@@ -7,9 +7,6 @@ import TodoApp from './components/todoApp';
 import NavigationBar from './components/navigationBar';
 import Error from './components/error.js';
 
-// import UserInput from './components/userInput';
-
-
 export default class App extends Component {
   render() {
     return (

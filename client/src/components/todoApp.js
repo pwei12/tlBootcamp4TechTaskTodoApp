@@ -15,7 +15,7 @@ export default class TodoApp extends Component {
 
     async componentDidMount() {
         const response = await fetch("/todos");//server returns json data
-        const { todoList } = await response.json(); //todos is just the object without the {}, with {} it destructure it and get the data inside ie the array
+        const { todoList } = await response.json(); //todos is just the object without the {}, with {} it destructures the object and get the data inside i.e the array
         this.setState({
             todoList: todoList,
         });
@@ -23,11 +23,11 @@ export default class TodoApp extends Component {
 
     //handleInputChange: record in the state the change of input whenever there's a key stroke in input
     handleInputChange = (e) => {
-        const { name, value} = e.target;
+        const { name, value} = e.target; //get two variables i.e name and value at the same time
         this.setState({
             [name]: value
         });
-    }//handleInputChange
+    }
 
     //handleAddTodos: add new todo to the array in the state
     handleAddTodos = async (e) => {
@@ -52,7 +52,7 @@ export default class TodoApp extends Component {
                 todoList: newTodoList,
                 newTodoDescription: "",
             });
-    
+            
             await fetch("/todos", {
                 method: 'post', 
                 headers: { 'Content-Type': 'application/json'},
@@ -62,6 +62,7 @@ export default class TodoApp extends Component {
         }
     }//handleAddTodos
 
+    //toggle isDone
     handleTodoClick = async (currentTodo) => {
         currentTodo.isDone = !currentTodo.isDone;
         this.setState({ todoList: this.state.todoList });
@@ -75,14 +76,14 @@ export default class TodoApp extends Component {
         });
     }
 
-    //filter out the item to be deleted and update todoList in the state
+    //filter out the item to be deleted 
     handleDeleteTodo = async (todoToBeDeleted) => {
         const updatedTodoList = this.state.todoList.filter((todo) => {
             return (
                 todo !== todoToBeDeleted
             );
         });
-        
+
         this.setState({todoList: updatedTodoList});
 
         await fetch("/todos", {
@@ -92,6 +93,7 @@ export default class TodoApp extends Component {
         });
     }
 
+    //toggle isEditMode, and get current todo description
     handleEditTodo = (todoToBeEdited) => {
         todoToBeEdited.isEditMode = !todoToBeEdited.isEditMode;
         
@@ -99,26 +101,19 @@ export default class TodoApp extends Component {
             todoList: this.state.todoList,
             editingDescription: todoToBeEdited.description,
          });
-
-        // const newTodoList = this.state.todoList;
-        // const toBeEdited = newTodoList.find(todo => todo === todoToBeEdited);
-        // toBeEdited.isEditMode = !toBeEdited.isEditMode;
-        // const index = newTodoList.indexOf(toBeEdited);
-        // newTodoList.splice(index, 1, toBeEdited);       
-        // this.setState({todoList: newTodoList});
     }
 
     handleDoneEdit = async (currentTodo) => {        
         const newTodoList = this.state.todoList;
         const index = this.state.todoList.indexOf(currentTodo);
-        const updatedTodo = {
+        const updatedTodo = { //edited todo
             description: this.state.editingDescription,
             isDone: currentTodo.isDone,
             id: currentTodo.id,
             isEditMode: false,
         };
 
-        newTodoList.splice(index, 1, updatedTodo);
+        newTodoList.splice(index, 1, updatedTodo); //replace old todo at index with edited todo
         
         this.setState({
             todoList: newTodoList,
@@ -130,7 +125,7 @@ export default class TodoApp extends Component {
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({ updatedTodo }),
             });
-    }
+    }//handleDoneEdit
 
     render() {
         return (
