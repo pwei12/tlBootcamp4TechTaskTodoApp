@@ -14,9 +14,13 @@ const AboutMe = () => {
         Previously, I was an electronics engineer working in Penang for approximately one and a half years.
         In 2011, I moved to Singapore as I got a job to work in a wafer fabrication company.
         In 2015, I decided to switch career hence currently I am a childcare teacher. Yeah, I know it's a totally different industry. 
-        I do not regret switching career because I have attained much personal growth. 
-        I consider these three years in early childhood industry as a long break. However, 
-        I think now it's time to go back to a field that requires more logical thinking.</p>
+        Nevertheless, during these years in early childhood, I have attained much personal growth. 
+        </p>
+
+        <p> Very often, people would ask me if I play basketball. The answer is NO, I DON'T. 
+           However, I like to play badminton despite I have never played ever since I moved to Singapore.
+          On the other hand, I like to play musical instrument. Recently, I am into ukelele but sadly I don't have much spare time to learn.
+        </p>
      
       <h3>Why do I Want to Join TechLadies Bootcamp?</h3>
 
@@ -34,7 +38,8 @@ const AboutMe = () => {
         
       <p>
         On the other hand, I am a vegetarian, and I wish to support environmental movement.
-        Therefore, when the participating NGO (of front-end project) was announced in the Info Session,
+        Therefore, when the participating NGO of front-end project 
+        ( Centre for a Responsible Future, which was formerly Vegetarian Society Singapore) was announced in the Info Session,
          I feel personally connected to the project of Bootcamp 4 very much. 
       </p>
       

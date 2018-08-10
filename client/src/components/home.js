@@ -12,7 +12,7 @@ const Home = () => {
          <p>This to-do web application allows user to add tasks to a list. <br/>
             The tasks added in the list can be edited by clicking on the "Edit" button. <br/>
             Moreover, the tasks can be marked as completed by clicking once on the text to get a strikethrough line. <br/>
-            Clicking one more time on the same to-do text will remove the strikethrough line.<br/>
+            Clicking one more time on the same task will remove the strikethrough line.<br/>
             On the other hand, the tasks can be deleted by clicking on the "Remove" button.
             </p>
       <footer>
